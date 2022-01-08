@@ -4,15 +4,30 @@ import java.util.ArrayList;
 
 public final class ChildrenUpdates {
 
-    private final Integer id;
-    private final Double niceScore;
-    private final ArrayList<String> giftPreferences;
+    private Integer id;
+    private Double niceScore;
+    private ArrayList<String> giftsPreferences;
+
+    public ChildrenUpdates() {
+    }
 
     public ChildrenUpdates(final Integer id, final Double niceScore,
                            final ArrayList<String> giftPreferences) {
         this.id = id;
         this.niceScore = niceScore;
-        this.giftPreferences = giftPreferences;
+        this.giftsPreferences = giftPreferences;
+    }
+
+    public void setId(final Integer id) {
+        this.id = id;
+    }
+
+    public void setNiceScore(final Double niceScore) {
+        this.niceScore = niceScore;
+    }
+
+    public void setGiftsPreferences(final ArrayList<String> giftPreferences) {
+        this.giftsPreferences = giftPreferences;
     }
 
     public Integer getId() {
@@ -24,6 +39,6 @@ public final class ChildrenUpdates {
     }
 
     public ArrayList<String> getGiftPreferences() {
-        return giftPreferences;
+        return giftsPreferences;
     }
 }

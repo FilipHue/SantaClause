@@ -2,20 +2,24 @@ package entities;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 
 public final class Child {
 
-    private final Integer id;
-    private final String lastName;
-    private final String firstName;
-    private final String city;
+    private Integer id;
+    private String lastName;
+    private String firstName;
+    private String city;
     private Integer age;
     private ArrayList<String> giftsPreferences;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Double niceScore;
     private Double averageScore = null;
-    private final ArrayList<Double> niceScoreHistory;
+    private ArrayList<Double> niceScoreHistory = new ArrayList<>();
     private Double assignedBudget;
+    @JsonIgnore
     private String type;
     private final ArrayList<Present> receivedGifts = new ArrayList<>();
 
@@ -79,6 +83,9 @@ public final class Child {
         }
     }
 
+    public Child() {
+    }
+
     private Child(final Builder builder) {
         this.id = builder.id;
         this.age = builder.age;
@@ -88,6 +95,37 @@ public final class Child {
         this.giftsPreferences = builder.giftsPreferences;
         this.city = builder.city;
         this.type = builder.childType;
+    }
+
+    public void setId(final Integer id) {
+        this.id = id;
+    }
+
+    public void setLastName(final String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setFirstName(final String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setCity(final String city) {
+        this.city = city;
+    }
+
+    /**
+     *
+     * @param niceScore
+     */
+    public void setNiceScore(final Double niceScore) {
+        this.niceScore = niceScore;
+        if (this.niceScoreHistory != null) {
+            this.niceScoreHistory.add(niceScore);
+        }
+    }
+
+    public Double getNiceScore() {
+        return this.niceScore;
     }
 
     public Integer getId() {

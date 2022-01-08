@@ -28,10 +28,10 @@ public final class FirstRound {
                 child.setType("Baby");
                 child.setAverageScore(Constants.BABY_GRADE);
             } else if (child.getAge() < Constants.TWELVE) {
-                child.setAverageScore(child.getNiceScoreHistory().get(0));
+                child.setAverageScore(child.getNiceScore());
                 child.setType("Kid");
             } else if (child.getAge() <= Constants.EIGHTEEN) {
-                child.setAverageScore(child.getNiceScoreHistory().get(0));
+                child.setAverageScore(child.getNiceScore());
                 child.setType("Young Teen");
             } else {
                 child.setType("Teen");
@@ -94,7 +94,7 @@ public final class FirstRound {
                         child.getLastName(),
                         child.getGiftsPreferences(),
                         child.getCity())
-                        .niceScore(child.getNiceScoreHistory().get(0))
+                        .niceScore(child.getNiceScore())
                         .type(child.getType())
                         .build());
             }

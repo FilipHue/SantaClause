@@ -60,7 +60,7 @@ public final class NextRound {
                             child.getLastName(),
                             child.getGiftsPreferences(),
                             child.getCity())
-                            .niceScore(child.getNiceScoreHistory().get(0))
+                            .niceScore(child.getNiceScore())
                             .type(child.getType())
                             .build());
                 }
